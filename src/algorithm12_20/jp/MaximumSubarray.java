@@ -34,5 +34,25 @@ https://leetcode.com/problems/maximum-subarray/
  
  */
 public class MaximumSubarray {
-
+	public int maxSubArray(int[] nums) {
+        int sum = nums[0];
+        int max = sum;
+        int startIndex = 0;
+        int maxIndex = 0;
+        for(int i = 1; i< nums.length; i++){
+            if (sum + nums[i] < nums[i]){
+                sum = nums[i];
+                startIndex = i;
+                maxIndex = i;
+              }
+              else{
+                 sum += nums[i];
+                 maxIndex = i;
+              }   
+              if(sum > max){
+                 max = sum;
+              }  
+        }
+        return max;
+    }
 }
