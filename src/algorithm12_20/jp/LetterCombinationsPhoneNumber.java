@@ -48,7 +48,7 @@ https://leetcode.com/problems/letter-combinations-of-a-phone-number/
 public class LetterCombinationsPhoneNumber {
 	  private static Map<Character, Set<String>> digitMap;
 	    static {
-	        digitMap = new HashMap<Character,Set<String>>();
+	      digitMap = new HashMap<Character,Set<String>>();
 	        
 	     digitMap.put('2', 
 	                     new HashSet<String>(Arrays.asList(new String[]{"a","b","c"})));

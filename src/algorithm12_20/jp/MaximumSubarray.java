@@ -33,6 +33,26 @@ Output: -2147483647
 https://leetcode.com/problems/maximum-subarray/
  
  */
+
+class Student{
+	public String getName() {
+		return "et";
+	}
+}
+class A{
+	
+}
+interface AI1{
+	
+}
+interface AI2{
+	
+}
+class B extends A implements AI1, AI2{
+	
+}
+
+
 public class MaximumSubarray {
 	public int maxSubArray(int[] nums) {
         int sum = nums[0];
@@ -55,4 +75,26 @@ public class MaximumSubarray {
         }
         return max;
     }
+	
+	public static String encode(String text){
+		StringBuilder b =  new StringBuilder();
+		for(int i = 0; i<text.length(); i++){
+		char c = text.charAt(i);
+		c+= c+i;
+		System.out.println("c: "+c);
+		//c += c+i
+		b.append(c);
+		}
+		return b.reverse().toString();
+		//return b.toString();
+
+	}
+
+	
+	public static void main(String[] args) {
+		Student s = new Student();
+		System.out.println("Name: "+s.getName());
+		String result = encode("testing1");
+		System.out.println("Encoding result: "+result);
+	}
 }
