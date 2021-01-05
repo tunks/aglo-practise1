@@ -42,17 +42,29 @@ https://leetcode.com/problems/jump-game/
  * */
 public class JumpGame {
 	public boolean canJump(int[] nums) {
-	       int[] positions = new int[nums.length];
+		  int maxPos = nums[0];
+
+		    for (int i = 1; i <nums.length; ++i) {
+		      // if one could't reach this point
+		      if (maxPos < i) {
+		        return false;
+		      }
+		      maxPos = Math.max(maxPos, nums[i] + i);
+		    }
+		    return true;
+		    
+	       /*int[] positions = new int[nums.length];
 	       //initialize positions to 0 --unknown 
 	       //1 for good and 2 for bad
 	       for(int i =0; i< nums.length; i++){
 	          positions[i] = 0; 
 	       }
+	       */
 	       //Approach 1- Backtracking + memozied Approach
 	        //return minimumJumps(nums,0, positions);
 	       
 	       //Approach 2 - DP bottom up 
-	        positions[nums.length -1] = 1; 
+	        /*positions[nums.length -1] = 1; 
 	        for(int i = nums.length-2; i>=0; i--){
 	            int numOfJumps =  Math.min(i+nums[i], nums.length-1);
 	            for(int p = i+1; p <= numOfJumps; p++)
@@ -65,9 +77,29 @@ public class JumpGame {
 	            }
 	        }
 	        return positions[0] == 1;
+	        *
 	    }
+	
+	/**
+	 * 
+	 *  int n = nums.length;
+
+    // max position one could reach 
+    // starting from index <= i
+    int maxPos = nums[0];
+
+    for (int i = 1; i < n; ++i) {
+      // if one could't reach this point
+      if (maxPos < i) {
+        return false;
+      }
+      maxPos = Math.max(maxPos, nums[i] + i);
+    }
+    return true;
+  }
+	 * */
 	    
-	    private boolean minimumJumps(int[] nums, int curIndex, int[] positions)
+	   /* private boolean minimumJumps(int[] nums, int curIndex, int[] positions)
 	    {
 	          if(curIndex >= nums.length){
 	             return false;
@@ -98,4 +130,5 @@ public class JumpGame {
 	        positions[curIndex] = 2;  
 	        return false;
 	    }
+	    */
 }
